@@ -14,21 +14,7 @@ import Menu from "./Menu";
 
 function App() {
   return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        x: 100,
-        y: 100
-      }}
-      animate={{
-        opacity: 1,
-        x: 0,
-        y: 0
-      }}
-      transition={{
-        duration: 1
-      }}
-    >
+    <motion.div>
       <Header>
         <Menu />
         <h1>Header</h1>
