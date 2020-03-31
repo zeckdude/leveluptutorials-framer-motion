@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardGrid, Container, Header } from "./Elements";
-import Modal from './Modal';
 import "./App.css";
 import Menu from "./Menu";
 
@@ -53,13 +52,6 @@ function App() {
         <button onClick={() => setIsHeaderOpacityLowered(prevIsHeaderOpacityLowered => !prevIsHeaderOpacityLowered)}>Toggle Header Opacity</button>
         <br />
         <button onClick={() => setIsHeaderVisible(prevIsHeaderVisible => !prevIsHeaderVisible)}>Show/Hide Header</button>
-
-        <Modal isVisible>
-          <Card style={{ background: "var(--purp)" }}>
-            <h3>Some card</h3>
-            <img src="https://i.ibb.co/bdyz7B4/purp.png" />
-          </Card>
-        </Modal>
 
         <CardGrid>
           <Card style={{ background: "var(--purp)" }}>
