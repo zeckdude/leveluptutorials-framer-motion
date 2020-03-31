@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardGrid, Container, Header } from "./Elements";
 import "./App.css";
@@ -13,10 +13,15 @@ import Menu from "./Menu";
 // Skew: skew, skewX, skewY
 
 function App() {
+  const [headerPosition, setHeaderPosition] = useState(0);
+  const [headerFontSize, setHeaderFontSize] = useState(16);
+  const [isHeaderOpacityLowered, setIsHeaderOpacityLowered] = useState(false)
+  console.log('headerPosition', headerPosition);
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: 100, skew: 100, rotate: 40 }}
-      animate={{ opacity: 1, x: 0, skew: 0, rotate: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <Header>
@@ -24,7 +29,20 @@ function App() {
         <h1>Header</h1>
       </Header>
       <Container>
-        <h2>Super Cool</h2>
+        <motion.h2 
+          animate={{ 
+            x: headerPosition,
+            fontSize: headerFontSize,
+            opacity: isHeaderOpacityLowered ? 0.3 : 1,
+          }}
+        >
+          Super Cool
+        </motion.h2>
+        Header Position <input type="range" min="-100" max="100" value={headerPosition} onChange={e => setHeaderPosition(Number(e.target.value))} />
+        <br />
+        Header Font Size <input type="range" min="1" max="80" value={headerFontSize} onChange={e => setHeaderFontSize(Number(e.target.value))} />
+        <br />
+        <button onClick={() => setIsHeaderOpacityLowered(prevIsHeaderOpacityLowered => !prevIsHeaderOpacityLowered)}>Toggle Header Opacity</button>
         <CardGrid>
           <Card style={{ background: "var(--purp)" }}>
             <h3>Some card</h3>
