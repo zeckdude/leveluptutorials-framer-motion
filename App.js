@@ -16,9 +16,16 @@ import Menu from "./Menu";
 function App() {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      animate={{ 
+        // Setting for each keyframe
+        opacity: [0, 1, 0, 1] 
+      }}
+      transition={{ 
+        // Seconds for the total animation
+        duration: 5, 
+        // The percentage of the total of the animation that each step is at
+        times: [0, .2, .3, 1] 
+      }}
     >
       <Header>
         <Menu />
