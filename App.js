@@ -3,10 +3,6 @@ import { motion } from "framer-motion";
 import { Card, CardGrid, Container, Header } from "./Elements";
 import "./App.css";
 import Menu from "./Menu";
-import blue from "./blue.png";
-import purp from "./purp.png";
-import black from "./black.png";
-import green from "./green.png";
 
 // By default all transforms are 3d.
 // You should only animate transforms and opacity
@@ -42,19 +38,19 @@ function App() {
         <CardGrid>
           <Card style={{ background: "var(--purp)" }}>
             <h3>Some card</h3>
-            <img src={purp} />
+            <img src="https://i.ibb.co/bdyz7B4/purp.png" />
           </Card>
           <Card style={{ background: "var(--blue)" }}>
             <h3>Some card</h3>
-            <img src={blue} />
+            <img src="https://i.ibb.co/cgT1tQs/blue.png" />
           </Card>
           <Card style={{ background: "var(--black)" }}>
             <h3>Some card</h3>
-            <img src={black} />
+            <img src="https://i.ibb.co/3zhkQCw/black.png" />
           </Card>
           <Card style={{ background: "var(--green)" }}>
             <h3>Some card</h3>
-            <img src={green} />
+            <img src="https://i.ibb.co/Q8g6yt5/green.png" />
           </Card>
         </CardGrid>
       </Container>
