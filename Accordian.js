@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+const variants = {
+  open: { opacity: 1, height: 'auto' },
+  closed: { opacity: 0, height: 0 },
+}
+
 const Accordian = ({ header, children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -20,18 +25,24 @@ const Accordian = ({ header, children }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            style={{ 
-              overflow: 'hidden',
-              //border: '1px solid black',
-              //borderTop: 'none',
-              //padding: '10px' 
-            }}
+            variants={variants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            style={{ overflow: 'hidden' }}
           >
             {children}
           </motion.div>
+
+          // This works too
+          // <motion.div
+          //   initial={variants.closed}
+          //   animate={variants.open}
+          //   exit={variants.closed}
+          //   style={{ overflow: 'hidden' }}
+          // >
+          //   {children}
+          // </motion.div>
         )}
       </AnimatePresence>
     </div>
