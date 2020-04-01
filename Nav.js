@@ -37,6 +37,10 @@ const Nav = ({ isOpen, onCloseClick }) => {
       variants={variants}
       initial="closed"
       animate={isOpen ? 'open' : 'closed'}
+      transition={{
+        ease: 'easeInOut',
+        duration: 1,
+      }}
     >
       <button onClick={onCloseClick}>Close</button>
       <ul>
