@@ -4,6 +4,7 @@ import { Card, CardGrid, Container, Header } from "./Elements";
 import Accordian from './Accordian';
 import "./App.css";
 import Menu from "./Menu";
+import Nav from "./Nav";
 
 // By default all transforms are 3d.
 // You should only animate transforms and opacity
@@ -14,6 +15,10 @@ import Menu from "./Menu";
 // Skew: skew, skewX, skewY
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  console.log('isMenuOpen', isMenuOpen);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -21,7 +26,8 @@ function App() {
       transition={{ duration: 1 }}
     >
       <Header>
-        <Menu />
+        <Menu onClick={() => setIsMenuOpen(true)} />
+        <Nav isOpen={isMenuOpen} onCloseClick={() => setIsMenuOpen(false)} />
         <h1>Header</h1>
       </Header>
       <Container>
